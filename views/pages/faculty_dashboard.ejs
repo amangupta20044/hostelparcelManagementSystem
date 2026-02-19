@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <img src="/images/LOGO.png" alt="GGV Logo" class="logo">
+      <span class="college-name">GGV</span>
+    </div>
+
+    <div class="nav-center">User Dashboard</div>
+
+    <div class="nav-right">
+      <a href="/login" class="logout-btn">Logout</a>
+    </div>
+  </nav>
+
+  <!-- Dashboard Section -->
+  <section class="dashboard">
+    <h2>Welcome 👋</h2>
+    <p class="subtitle">Manage your parcel-related services quickly and easily</p>
+
+    <div class="dashboard-cards">
+      <div class="card" onclick="location.href='/complaints'">
+        <div class="icon">📝</div>
+        <h3>Complaints</h3>
+        <p>Report any issues regarding your parcels.</p>
+      </div>
+
+      <div class="card" onclick="location.href='/feedback'">
+        <div class="icon">💬</div>
+        <h3>Feedback</h3>
+        <p>Share your thoughts to help us improve our service.</p>
+      </div>
+
+      <div class="card" onclick="location.href='/returns'">
+        <div class="icon">🔁</div>
+        <h3>Return Parcels</h3>
+        <p>Submit a return request for delivered parcels.</p>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

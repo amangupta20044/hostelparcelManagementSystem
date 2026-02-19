@@ -1,0 +1,167 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #141e30, #243b55);
+  color: white;
+  min-height: 100vh;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 10px 40px; /* made navbar wider; */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.college-name {
+  font-weight: 600;
+  font-size: 1.2em;
+  color: #cde4ff;
+  letter-spacing: 0.5px;
+}
+
+.nav-center {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #9ad5ff;
+  text-shadow: 0 0 10px rgba(0, 200, 255, 0.4);
+}
+
+.nav-right a {
+  color: #ffd369;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 20px;
+  transition: 0.3s;
+}
+
+.nav-right a:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+  padding: 40px;
+}
+
+h2 {
+  margin-top: 40px;
+  text-align: center;
+}
+
+/* ===== TABLE ===== */
+table {
+  width: 90%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3);
+}
+
+th, td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+th {
+  background: rgba(0, 0, 0, 0.5);
+  color: #ffd369;
+}
+
+tr:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+
+/* Delete All Button (Centered + Styled)  for admin_feedback.ejs*/
+.delete-all-btn {
+  display: block;
+  margin: 40px auto;
+  padding: 12px 25px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #ff4b2b, #ff416c);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 65, 108, 0.3);
+}
+
+.delete-all-btn:hover {
+  background: linear-gradient(135deg, #ff3b1f, #ff295f);
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(255, 65, 108, 0.4);
+}
+
+.delete-all-btn:active {
+  transform: scale(0.97);
+  box-shadow: 0 3px 8px rgba(255, 65, 108, 0.3);
+}
+
+/* Complaint Status Dropdown for complain_admin.css*/
+form select[name="status"] {
+  background: linear-gradient(135deg, #243b55, #141e30);
+  color: #ffffff;
+  border: 1px solid #3b4a6b;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+form select[name="status"]:hover {
+  background: linear-gradient(135deg, #2a4365, #1b2735);
+  transform: scale(1.03);
+}
+
+form select[name="status"]:focus {
+  border-color: #00b4d8;
+  box-shadow: 0 0 8px rgba(0, 180, 216, 0.6);
+}
+
+form select[name="status"] option {
+  background-color: #1b2735;
+  color: white;
+}
+
+
+.delete-btn {
+  color: red;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.delete-btn:hover {
+  text-decoration: underline;
+  color: darkred;
+}
+
+

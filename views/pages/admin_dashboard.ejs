@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+  <div class="overlay"></div>
+  <nav class="navbar">
+    <div class="nav-left">
+      <img src="/images/LOGO.png" alt="GGV Logo" class="logo">
+      <span class="college-name">GGV</span>
+    </div>
+
+    <div class="nav-center">ParcelEase Admin Panel</div>
+
+    <div class="nav-right">
+      <a href="/login" class="logout-btn">Logout</a>
+    </div>
+  </nav>
+
+  <div class="dashboard-container">
+    <h2>Welcome, Admin 👋</h2>
+    <p>Select a module to manage parcels, feedback, complaints, or returns.</p>
+
+    <div class="card-grid">
+      <div class="card" onclick="location.href='/parcels/entry?type=student'">
+        <h3>Student Parcels</h3>
+        <p>Add or manage student parcels</p>
+      </div>
+
+      <div class="card" onclick="location.href='/parcels/entry?type=faculty'">
+        <h3>Faculty Parcels</h3>
+        <p>Add or manage faculty parcels</p>
+      </div>
+
+      <div class="card" onclick="location.href='/parcels/student'">
+        <h3>View Student Parcels</h3>
+        <p>See all student parcel entries</p>
+      </div>
+
+      <div class="card" onclick="location.href='/parcels/faculty'">
+        <h3>View Faculty Parcels</h3>
+        <p>See all faculty parcel entries</p>
+      </div>
+
+      <div class="card" onclick="location.href='/complaints/show'">
+        <h3>View Complaints</h3>
+        <p>See all complaint entries</p>
+      </div>
+
+      <div class="card" onclick="location.href='/feedback/show'">
+        <h3>View Feedback</h3>
+        <p>See all feedback entries</p>
+      </div>
+
+      <div class="card" onclick="location.href='/returns/show'">
+        <h3>View Returns</h3>
+        <p>See all return entries</p>
+      </div>
+
+      <div class="card">
+        <h3>Notifications</h3>
+        <div>
+          <p><a href="/notify/send-now" class="send-btn">
+            Send Notifications Now
+          </a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

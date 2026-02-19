@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/complaint.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <img src="/images/LOGO.png" alt="GGV Logo" class="logo">
+      <span class="college-name">GGV</span>
+    </div>
+
+    <div class="nav-center">ParcelEase Complaint Portal</div>
+
+    <div class="nav-right">
+      <a href="/check">Dashboard</a>
+      <a href="/login" class="logout-btn">Logout</a>
+    </div>
+  </nav>
+
+  <!-- Complaint Form -->
+  <div class="container">
+    <h2>📝 Lodge a Complaint</h2>
+
+    <form action="/complaints" method="POST" class="complaint-form">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="role">Role</label>
+      <select id="role" name="role" required>
+        <option value="">-- Select Role --</option>
+        <option value="Student">Student</option>
+        <option value="Faculty">Faculty</option>
+      </select>
+
+      <label for="complain_type">Complaint Type</label>
+      <select id="complain_type" name="complain_type" required>
+        <option value="">-- Select Type --</option>
+        <option value="Parcel Not Received">Parcel Not Received</option>
+        <option value="Lost">Lost</option>
+        <option value="Damaged">Damaged</option>
+        <option value="Notification Issue">Notification Issue</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <label for="description">Description</label>
+      <textarea id="description" name="description" rows="5" placeholder="Describe your issue..." required></textarea>
+
+      <button type="submit" class="submit-btn">Submit Complaint</button>
+    </form>
+  </div>
+</body>
+</html>

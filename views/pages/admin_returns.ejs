@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/common_admin.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <img src="/images/LOGO.png" alt="GGV Logo" class="logo">
+      <span class="college-name">GGV</span>
+    </div>
+
+    <div class="nav-center">All Return Requests</div>
+
+    <div class="nav-right">
+      <a href="/admin/dashboard" class="logout-btn">Dashboard</a>
+      <a href="/login" class="logout-btn">Logout</a>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <div class="container">
+    <h2>📦 Return Requests</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Parcel ID</th>
+          <th>Name</th>
+          <th>Role</th>
+          <th>Reason</th>
+          <th>Status</th>
+          <th>Requested On</th>
+          <th>Update Status</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (returns.length === 0) { %>
+          <tr><td colspan="8">No return requests found.</td></tr>
+        <% } else { %>
+          <% returns.forEach(r => { %>
+            <tr>
+              <td><%= r.return_id %></td>
+              <td><%= r.parcel_id %></td>
+              <td><%= r.name %></td>
+              <td><%= r.role %></td>
+              <td><%= r.reason %></td>
+              <td><%= r.status %></td>
+              <td><%= new Date(r.request_date).toISOString().split('T')[0] %></td>
+              <td>
+                <form action="/returns/show/update/<%= r.return_id %>" method="POST">
+                  <select name="status" required>
+                    <option value="Pending" <%= r.status === 'Pending' ? 'selected' : '' %>>Pending</option>
+                    <option value="Received" <%= r.status === 'Received' ? 'selected' : '' %>>Received</option>
+                    <option value="Returned" <%= r.status === 'Returned' ? 'selected' : '' %>>Returned</option>
+                  </select>
+                  <button type="submit">Update</button>
+                </form>
+              </td>
+
+              <td>
+              <a href="/returns/delete/<%= r.return_id %>"
+                onclick="return confirm('Delete this return entry?');">
+                ❌ Delete
+              </a>
+            </td>
+
+            </tr>
+          <% }) %>
+        <% } %>
+      </tbody>
+    </table>  
+  </div>
+</body>
+</html>

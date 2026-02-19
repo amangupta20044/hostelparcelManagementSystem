@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/common_admin.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <img src="/images/LOGO.png" alt="GGV Logo" class="logo">
+      <span class="college-name">GGV</span>
+    </div>
+
+    <div class="nav-center">All Complaints</div>
+
+    <div class="nav-right">
+      <a href="/admin/dashboard" class="logout-btn">Dashboard</a>
+      <a href="/login" class="logout-btn">Logout</a>
+    </div>
+  </nav>
+
+  <!-- Complaint List Container -->
+  <div class="container">
+    <h2>📋 Complaint List</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Role</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>Action</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% if (complaints.length === 0) { %>
+          <tr><td colspan="8">No complaints found</td></tr>
+        <% } else { %>
+          <% complaints.forEach(c => { %>
+            <tr>
+              <td><%= c.complaint_id %></td>
+              <td><%= c.name %></td>
+              <td><%= c.role %></td>
+              <td><%= c.complain_type %></td>
+              <td><%= c.description %></td>
+              <td><%= c.status %></td>
+
+              <td>
+                <form action="/complaints/update" method="POST">
+                  <input type="hidden" name="complaint_id" value="<%= c.complaint_id %>">
+                  <select name="status" onchange="this.form.submit()">
+                    <option disabled selected>Change</option>
+                    <option value="Pending">Pending</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Resolved">Resolved</option>
+                    <option value="Rejected">Rejected</option>
+                  </select>
+                </form>
+              </td>
+
+              <!-- DELETE BUTTON -->
+              <td>
+                <a href="/complaints/delete/<%= c.complaint_id %>"
+                  onclick="return confirm('Are you sure you want to delete this complaint?');"
+                  class="delete-btn">
+                  ❌ Delete
+                </a>
+              </td>
+
+            </tr>
+          <% }) %>
+        <% } %>
+      </tbody>
+
+    </table>
+  </div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/common_admin.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-left">
+      <img src="/images/LOGO.png" alt="GGV Logo" class="logo">
+      <span class="college-name">GGV</span>
+    </div>
+    <div class="nav-center">Faculty Parcel Entries</div>
+    <div class="nav-right">
+      <a href="/admin/dashboard">Dashboard</a>
+      <a href="/login">Logout</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h2>🧑‍🏫 Faculty Parcels</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Faculty Name</th>
+          <th>Faculty ID</th>
+          <th>Phone</th>
+          <th>Courier</th>
+          <th>Tracking ID</th>
+          <th>Arrival Date</th>
+          <th>Status</th>
+          <th>Update Status</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% if (parcels.length === 0) { %>
+          <tr><td colspan="9">No parcels found</td></tr>
+        <% } else { %>
+          <% parcels.forEach(p => { %>
+            <tr>
+              <td><%= p.parcel_id %></td>
+              <td><%= p.faculty_name %></td>
+              <td><%= p.faculty_id %></td>
+              <td><%= p.phone %></td>
+              <td><%= p.courier_name %></td>
+              <td><%= p.tracking_id || '-' %></td>
+              <td><%= p.arrival_date.toISOString().split('T')[0] %></td>
+              <td><%= p.status %></td>
+
+              <!-- Update Status -->
+              <td>
+                <form action="/parcels/faculty/update/<%= p.parcel_id %>" method="POST">
+                  <select name="status">
+                    <option value="Received"  <%= p.status==="Received"?"selected":"" %>>Received</option>
+                    <option value="Delivered" <%= p.status==="Delivered"?"selected":"" %>>Delivered</option>
+                  </select>
+                  <button type="submit">Update</button>
+                </form>
+              </td>
+
+              <!-- Delete Button -->
+              <td>
+                <a href="/parcels/faculty/delete/<%= p.parcel_id %>"
+                   onclick="return confirm('Are you sure you want to delete this parcel?');"
+                   class="delete-btn">
+                   ❌ Delete
+                </a>
+              </td>
+            </tr>
+          <% }) %>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>

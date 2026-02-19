@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/complaint.css">
+</head>
+<body>  
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <img src="/images/LOGO.png" alt="GGV Logo" class="logo">
+      <span class="college-name">GGV</span>
+    </div>
+
+    <div class="nav-center">Parcel Return Request</div>
+
+    <div class="nav-right">
+      <a href="/check">Dashboard</a>
+      <a href="/login" class="logout-btn">Logout</a>
+    </div>
+  </nav>
+
+  <!-- Return Form -->
+  <div class="container">
+    <h2>📦 Return Parcel</h2>
+
+    <form action="/returns" method="POST" class="complaint-form">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="role">Role</label>
+      <select id="role" name="role" required>
+        <option value="">-- Select Role --</option>
+        <option value="Student">Student</option>
+        <option value="Faculty">Faculty</option>
+      </select>
+
+      <label for="parcel_id">Parcel ID</label>
+      <input type="number" id="parcel_id" name="parcel_id" placeholder="Enter your parcel ID" required>
+
+      <label for="reason">Reason for Return</label>
+      <textarea id="reason" name="reason" rows="4" placeholder="Explain why you’re returning this parcel..." required></textarea>
+
+      <button type="submit" class="submit-btn">Submit Return Request</button>
+    </form>
+  </div>
+</body>
+</html>

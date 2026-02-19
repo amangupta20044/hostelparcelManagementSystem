@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/form_style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-left">
+      <img src="/images/LOGO.png" alt="GGV Logo" class="logo">
+      <span class="college-name">GGV</span>
+    </div>
+    <div class="nav-center">Parcel Entry (<%= type === 'faculty' ? 'Faculty' : 'Student' %>)</div>
+    <div class="nav-right"><a href="/admin/dashboard">Back</a></div>
+  </nav>
+
+  <div class="form-container">
+    <!-- <h2>Add <%= type === 'faculty' ? 'Faculty' : 'Student' %> Parcel</h2> -->
+
+    <form action="/parcels/entry" method="POST">
+      <input type="hidden" name="type" value="<%= type %>">
+
+      <% if (type === 'faculty') { %>
+        <label>Faculty Name</label>
+        <input type="text" name="name" placeholder="Enter Faculty Name" required>
+
+        <label>Faculty ID</label>
+        <input type="text" name="faculty_id" placeholder="Enter Faculty ID" required>
+      <% } else { %>
+        <label>Student Name</label>
+        <input type="text" name="name" placeholder="Enter Student Name" required>
+
+        <label>Roll No</label>
+        <input type="text" name="roll_no" placeholder="Enter Roll Number" required>
+      <% } %>
+
+      <label>Phone</label>
+      <input type="text" name="phone" placeholder="phone no." required>
+
+      <label>Courier Name</label>
+      <input type="text" name="courier_name" placeholder="Enter Courier Name" required>
+
+      <label>Tracking ID</label>
+      <input type="text" name="tracking_id" placeholder="Enter Tracking ID (optional)">
+
+      <label>Arrival Date</label>
+      <input type="date" name="arrival_date" required>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</body>
+</html>

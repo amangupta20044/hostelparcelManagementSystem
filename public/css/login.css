@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* ---------- Background Setup ---------- */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background: url('/images/background.jpg') no-repeat center center fixed; */
+  background: rgb(95, 89, 89);
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add a slight dark overlay for better text visibility */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 0;
+}
+
+/* ---------- Login Box ---------- */
+.login-container {
+  position: relative;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.55);
+  padding: 40px;
+  border-radius: 20px;
+  width: 360px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 1s ease-in-out;
+}
+
+h2 {
+  margin-bottom: 25px;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* ---------- Inputs ---------- */
+input, select{
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 14px;
+}
+
+label{
+  color: white;
+}
+
+option{
+  background-color: black;
+}
+
+input::placeholder {
+  color: #ddd;
+}
+
+/* ---------- Button ---------- */
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #6a85e9, #7d5ecf);
+}
+
+/* ---------- Register Text ---------- */
+.register-text {
+  margin-top: 15px;
+  color: #ddd;
+  font-size: 14px;
+}
+
+.register-text a {
+  color: #ffd369;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.register-text a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Animation ---------- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
